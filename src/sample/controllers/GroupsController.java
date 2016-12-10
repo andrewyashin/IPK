@@ -85,7 +85,7 @@ public class GroupsController implements Initializable{
     private void filldata(ResultSet resultSet) throws SQLException {
         while (resultSet.next()){
             Groups item = new Groups(resultSet.getInt("id_group"),
-                    resultSet.getInt("id_speciality"), resultSet.getString("name"), resultSet.getDate("date_of_ending").toString());
+                    resultSet.getInt("id_speciality"), resultSet.getString("name_of_group"), resultSet.getDate("date_of_ending").toString());
             examinationsObservableList.add(item);
         }
     }
@@ -112,7 +112,7 @@ public class GroupsController implements Initializable{
     private void initColumns(){
         idGroupColumn.setCellValueFactory(new PropertyValueFactory<Groups, Integer>("id_group"));
         idSpecialityColumn.setCellValueFactory(new PropertyValueFactory<Groups, Integer>("id_speciality"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Groups, String>("name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Groups, String>("name_of_group"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Groups, String>("date_of_ending"));
 
         idGroupColumn.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Integer>() {

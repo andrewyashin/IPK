@@ -26,6 +26,14 @@ public class Connection {
             mStatement = mConnection.createStatement();
     }
 
+    public Statement getStatement() {
+        return mStatement;
+    }
+
+    public void setmStatement(Statement mStatement) {
+        this.mStatement = mStatement;
+    }
+
     public ResultSet executeDataFromTable(String table) throws SQLException{
         return mStatement.executeQuery("SELECT * FROM " + table);
     }
@@ -46,6 +54,10 @@ public class Connection {
 
     public void executeDelete(String tableName, String id, String value) throws SQLException{
         mStatement.executeUpdate("DELETE FROM " + tableName + " WHERE " + id + "=" + value);
+    }
+
+    public java.sql.Connection getConnection() {
+        return mConnection;
     }
 }
 
