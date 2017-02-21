@@ -1,0 +1,140 @@
+create database ipk;
+create table ipk.organisation (
+	id_organisation int,
+    name varchar(30) not null,
+    adress varchar(20),
+    
+    primary key (id_organisation)
+);
+
+create table ipk.students (
+	id_student int,
+    surname varchar(30),
+    name varchar(30),
+    id_group int,
+    id_organisation int,
+    
+    primary key (id_student)
+);
+
+create table ipk.specialities (
+	id_speciality int,
+	name varchar(20) not null,
+	time int,
+	count int,
+	is_hostel bool,
+	price double,
+        
+	primary key (id_speciality)
+);
+
+create table ipk.groups (
+	id_group int,
+	date_of_ending date,
+    id_speciality int,
+    name varchar(20),
+    
+    primary key (id_group)
+);
+
+create table ipk.teachers(
+	id_teacher int,
+    name varchar(20),
+    is_degree boolean,
+    
+    primary key(id_teacher)
+);
+
+create table ipk.shedule(
+	id_shedule int,
+	id_subject int,
+    id_teacher int,
+    id_group int,
+    date_time datetime,
+    type_of_subject varchar(20)
+);
+
+create table ipk.examinations(
+	id_subject int,
+    id_student int,
+    mark varchar(1),
+    
+    primary key(id_subject, id_student)
+);
+
+create table ipk.subjects(
+	id_subject int,
+    name varchar(20),
+    
+    primary key(id_subject)
+);
+
+use ipk;
+
+alter table students add foreign key (id_group) references groups (id_group) on;
+alter table shedule add foreign key (id_group) references groups (id_group);
+
+alter table groups add foreign key (id_speciality) references specialities (id_speciality);
+alter table students add foreign key (id_organisation) references organisation (id_organisation);
+alter table examinations add foreign key (id_student) references students (id_student);
+
+alter table examinations add foreign key (id_subject) references subjects (id_subject);
+alter table shedule add foreign key (id_subject) references subjects (id_subject);
+
+insert into organisation(name,adress,id_organisation)
+	values ("Google", "USA", 201), 
+    ("Apple", "USA", 202),
+	("D2", "Ukraine", 203);
+    
+insert into teachers(id_teacher, name, is_degree)
+	values (601, "Segeda", true),
+    (602, "Karpenko", false),
+    (603, "Kuzminykh", true),
+    (604, "Sidorenko", true);
+    
+insert into specialities(id_speciality, name, time, count, is_hostel, price)
+	values (401, "Programmer", 2, 2, true, 2000),
+    (402, "Designer", 1,1,true, 2500),
+    (403, "Tester", 2,1, false, 2300);
+    
+insert into groups(id_group, date_of_ending, id_speciality, name) 
+	values (501, "2016-11-07", 401, "AP"),
+    (502, "2016-11-12", 402, "AD"),
+    (503, "2016-11-20", 403, "AT"),
+    (504, "2016-11-07", 401, "AP");
+    
+insert into students(id_student,surname,name,id_group,id_organisation)
+	values (301, "Cook", "Tim", 501, 202),
+    (302, "Penz", "Mike", 501, 201),
+    (303, "Yashin", "Andrew", 501, 203),
+    (304, "Yesenin", "Sergei", 504, 203),
+    (305, "Brown", "Den", 504, 201),
+    (306, "Stoken","Brem", 502, 202),
+    (307, "George", "Martin", 502, 202),
+    (308, "Tolstoi", "Lev", 503, 203),
+    (309, "Markes", "Gabriel", 503, 201),
+    (310, "Koelho", "Paulo", 503, 201);
+
+insert into shedule(id_shedule, id_subject, id_teacher, id_group, date_time, type_of_subject)
+	values (801, 701, 603, 501, "2016-11-07 08:30:00", "lection"),
+    (801, 701, 603, 501, "2016-11-07 10:25:00", "practice"),
+    (801, 702, 602, 501, "2016-11-08 10:25:00", "lection"),
+    (801, 702, 602, 501, "2016-11-08 12:20:00", "practice"),
+    (802, 703, 604, 502, "2016-11-12 08:30:00", "lection"),
+    (802, 703, 604, 502, "2016-11-12 10:25:00", "practice"),
+    (802, 704, 602, 502, "2016-11-13 12:20:00", "lection"),
+    (802, 704, 602, 502, "2016-11-13 14:15;00", "practice");
+
+insert into subjects(id_subject, name)
+	values (701, "Math"),
+    (702, "Programming"),
+    (703, "Webdesign"),
+    (704, "Drawing"),
+    (705, "Testing"),
+    (706, "Managment"),
+    (707, "Databases");
+
+insert into examinations (id_subject, id_student, mark)
+	values (701, 303, "A"),
+    (703, 306, "B"),
+    (702, 301, "C");
