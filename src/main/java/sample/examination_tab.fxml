@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="examinationsTab" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ExaminationsController">
+   <children>
+       <TableView fx:id="tableExaminations" maxHeight="1.7976931348623157E308" maxWidth="443.0" minWidth="442.0" prefHeight="598.0" prefWidth="442.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="0.0">
+           <columns>
+               <TableColumn fx:id="groupColumn" prefWidth="60.493365705013275" text="Группа" />
+               <TableColumn fx:id="surnameColumn" prefWidth="104.20796203613281" text="Фамилия" />
+               <TableColumn fx:id="nameColumn" prefWidth="101.79203796386719" text="Имя" />
+               <TableColumn fx:id="subjectColumn" prefWidth="99.61062622070312" text="Предмет" />
+               <TableColumn fx:id="markColumn" prefWidth="71.61074829101562" text="Оценка" />
+           </columns>
+       </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="240.0" layoutX="456.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="327.0" />
+      <Button fx:id="buttonAdd" layoutX="727.0" layoutY="212.0" mnemonicParsing="false" text="Add" />
+      <ChoiceBox fx:id="groupAdd" layoutX="620.0" layoutY="21.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="surnameAdd" layoutX="620.0" layoutY="58.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="nameAdd" layoutX="620.0" layoutY="93.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="subjectAdd" layoutX="620.0" layoutY="129.0" prefWidth="150.0" />
+      <TextField fx:id="markAdd" layoutX="620.0" layoutY="166.0" prefHeight="27.0" prefWidth="150.0" promptText="A" />
+      <Label layoutX="470.0" layoutY="26.0" text="Группа" />
+      <Label layoutX="470.0" layoutY="63.0" text="Фамилия" />
+      <Label layoutX="470.0" layoutY="98.0" text="Имя" />
+      <Label layoutX="470.0" layoutY="134.0" prefHeight="17.0" prefWidth="71.0" text="Предмет" />
+      <Label layoutX="470.0" layoutY="171.0" prefHeight="17.0" prefWidth="71.0" text="Оценка" />
+   </children>
+</AnchorPane>

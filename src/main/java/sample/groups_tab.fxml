@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.SplitPane?>
+
+<AnchorPane fx:id="examinationsTab" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.GroupsController">
+   <children>
+       <TableView fx:id="tableGroups" maxHeight="1.7976931348623157E308" maxWidth="519.0" minWidth="439.0" prefHeight="598.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="531.0" AnchorPane.topAnchor="0.0">
+           <columns>
+               <TableColumn fx:id="idGroupColumn" prefWidth="82.0" text="ID Группы" />
+               <TableColumn fx:id="specialityColumn" prefWidth="138.0" text="Специальность" />
+               <TableColumn fx:id="dateColumn" prefWidth="134.23377990722656" text="Дата окончания " />
+            <TableColumn fx:id="nameColumn" prefWidth="99.0" text="Название" />
+           </columns>
+       </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="198.0" layoutX="463.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+      <Label layoutX="485.0" layoutY="30.0" text="ID Группы" />
+      <Label layoutX="485.0" layoutY="65.0" text="Специальность" />
+      <Label layoutX="485.0" layoutY="100.0" text="Дата окончания" />
+      <TextField fx:id="idGroupAdd" layoutX="646.0" layoutY="28.0" prefHeight="27.0" prefWidth="190.0" promptText="500" />
+      <Button fx:id="buttonAdd" layoutX="794.0" layoutY="172.0" mnemonicParsing="false" text="Add" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c98e8e" height="99.0" layoutX="463.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+      <Label layoutX="481.0" layoutY="237.0" text="ID Группы" />
+      <TextField fx:id="idGroupDelete" layoutX="663.0" layoutY="230.0" promptText="500" />
+      <Button fx:id="buttonDelete" layoutX="782.0" layoutY="275.0" mnemonicParsing="false" text="Delete" />
+      <TextField fx:id="nameAdd" layoutX="646.0" layoutY="132.0" prefHeight="27.0" prefWidth="190.0" promptText="AP" />
+      <Label layoutX="485.0" layoutY="136.0" text="Название" />
+      <ChoiceBox fx:id="specialityAdd" layoutX="646.0" layoutY="60.0" prefHeight="27.0" prefWidth="190.0" />
+      <DatePicker fx:id="dateEndAdd" layoutX="646.0" layoutY="96.0" prefHeight="27.0" prefWidth="190.0" />
+   </children>
+</AnchorPane>
