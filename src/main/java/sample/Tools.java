@@ -12,6 +12,8 @@ public class Tools {
     }
 
     public static String createString(List<String> list){
+        if(list==null) return "()";
+
         String result = "(";
 
         for (String word : list) {
